@@ -6,6 +6,6 @@ export default()=>{
                    { "GST NUMBER" : "GST,GST NUMBER,GST NO,ENTER GST NO,GST FIELD"}
                 ]
             }
-        ]
+        ],
     }
 }

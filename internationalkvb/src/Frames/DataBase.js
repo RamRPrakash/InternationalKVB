@@ -5,7 +5,7 @@ export default()=>{
                 "PAGES":[{
                     "NEWCUSTOMERVIEW":[{
                         "FIELDS":[
-                            {"GST" : [
+                            {"GST NUMBER" : [
                                 {
                                     "KEYWORDS" : "GST,TAG,TAG NAME,STORED,STORED NAME,KEY",
                                     "ANSWER":"Tag for gst number is GST_NUMBER",

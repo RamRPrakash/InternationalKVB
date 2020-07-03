@@ -9,6 +9,7 @@ import MatchKey from '../Frames/MatchKey'
 import Application from '../Frames/ApplicationList'
 import Pages from '../Frames/PagesList'
 import Fields from '../Frames/FieldsList'
+import SearchKey from '../Frames/Searchkey'
 class KvbView extends Component {
     constructor(props) {
         super(props);
@@ -19,18 +20,51 @@ class KvbView extends Component {
         // var classfication = data.split(" ")
         // console.log(classfication)
         var Seg = Segmention(data)
-        console.log(Seg)
         var ApplicationList = Application()
         var ApplicationMatch = MatchKey(ApplicationList, Seg)
 
         var PageList = Pages()
         var PageMatch = MatchKey(PageList, Seg )
+        var FieldsList = Fields()
+        var FieldMatchs = this.fieldMatch(PageMatch, FieldsList, Seg)
+        
+
+        var keywords = SearchKey(ApplicationMatch, PageMatch, FieldMatchs, Seg)
+        
         console.log(ApplicationMatch)
         console.log(PageMatch)
-        var FieldsList = Fields()
-        console.log(FieldsList)
+        console.log(FieldMatchs)
+        console.log(keywords)
+        
+        
+    }
+    fieldMatch(PageMatch, FieldsList, Seg){
+        var TotalFieldMatch = []
+        if (PageMatch['Key'].length > 0) {
+            PageMatch['Ans'].map((item) => {
+                if (item) {
+                    var data = FieldsList[item]
+                    data.map((items) => {
+                        items['FIELDS'].map((fieldItem) => {
+                            var FieldMatch = MatchKey(fieldItem, Seg)
+                            TotalFieldMatch.push(FieldMatch)
+                        })
+                    })
+                }
+            })
+        }
+        else {
+            Object.values(FieldsList).map((item) => {
+                item.map((items) => {
+                    items['FIELDS'].map((fieldItem) => {
+                        var FieldMatch = MatchKey(fieldItem, Seg)
+                        TotalFieldMatch.push(FieldMatch)
 
-
+                    })
+                })
+            })
+        }
+        return TotalFieldMatch
     }
     render() { 
         return (<Paper style={{height : '1000px' , margin : '3%'}} elevation={3} >
