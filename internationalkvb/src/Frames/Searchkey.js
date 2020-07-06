@@ -3,7 +3,7 @@ export default (ApplicationMatch, PageMatch, FieldMatchs, Seg)=>{
     var pageKey = PageMatch['Ans']
     var Fields = []
     var FieldKey = FieldMatchs.map((item)=>{
-       Fields.push(...item['Ans'])
+        Fields.push(...item['Key'])
     })
     console.log(applicationKey)
     console.log(pageKey)

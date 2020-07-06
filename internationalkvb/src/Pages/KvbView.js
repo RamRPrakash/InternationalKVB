@@ -10,6 +10,7 @@ import Application from '../Frames/ApplicationList'
 import Pages from '../Frames/PagesList'
 import Fields from '../Frames/FieldsList'
 import SearchKey from '../Frames/Searchkey'
+import SearchResult from '../Frames/SearchResult'
 class KvbView extends Component {
     constructor(props) {
         super(props);
@@ -36,7 +37,8 @@ class KvbView extends Component {
         console.log(FieldMatchs)
         console.log(keywords)
         
-        
+        var checkDataBase = SearchResult(keywords)
+        console.log(checkDataBase)
     }
     fieldMatch(PageMatch, FieldsList, Seg){
         var TotalFieldMatch = []

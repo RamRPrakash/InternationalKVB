@@ -3,7 +3,7 @@ export default()=>{
         "APPLICATION" : [
             {"NTB" : {
                 "PAGES":[{
-                    "NEWCUSTOMERVIEW":[{
+                    "NEWCUSTOMERVIEW":{
                         "FIELDS":[
                             {"GST NUMBER" : [
                                 {
@@ -65,7 +65,7 @@ export default()=>{
                             ]},
                             {}
                         ]
-                    }]
+                    }
                 }]
             }}
         ]
